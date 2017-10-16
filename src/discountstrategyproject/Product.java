@@ -53,7 +53,11 @@ public class Product {
     }
 
     public final void setDiscountStrategy(DiscountStrategy ds) {
-        this.discountStrategy = ds;
+         if(ds == null){
+            throw new IllegalArgumentException("Error with the discount strategy in Product class");
+        }else{
+            this.discountStrategy = ds;
+        }
     }
     
 }

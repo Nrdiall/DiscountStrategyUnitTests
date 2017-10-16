@@ -24,7 +24,7 @@ public class PaperReceipt implements ReceiptGenerator {
         setDb(db);
     }
     @Override
-    public void getReceipt() {
+    public final void getReceipt() {
         System.out.println("Thank You for Shopping!!!");
         System.out.println(LocalDateTime.now());
         Customer customer = db.findCustomer(custId);

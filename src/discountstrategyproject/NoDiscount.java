@@ -11,7 +11,7 @@ package discountstrategyproject;
 public class NoDiscount implements DiscountStrategy {
 
     public NoDiscount() {
-        
+        getDiscountAmt(0,0);
     }
     @Override
     public double getDiscountAmt(double unitPrice, int qty) {

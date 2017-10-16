@@ -8,7 +8,7 @@ package discountstrategyproject;
  *
  * @author L117student
  */
-public final class PercentOffDiscount implements DiscountStrategy {   
+public class PercentOffDiscount implements DiscountStrategy {   
     private double percentOffPercent;
     
     public PercentOffDiscount(double percentOffPercent) {
@@ -16,7 +16,7 @@ public final class PercentOffDiscount implements DiscountStrategy {
     }
 
     @Override
-    public double getDiscountAmt(double unitPrice, int qty) {
+    public final double getDiscountAmt(double unitPrice, int qty) {
         return percentOffPercent * unitPrice * qty; 
     }
     

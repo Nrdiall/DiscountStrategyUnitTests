@@ -14,16 +14,16 @@ public class LineItem {
     private ReceiptDataAccessStrategy data;
 
     public LineItem(String productID, int qty,ReceiptDataAccessStrategy data) {
-        this.productID = productID;
-        this.data = data; 
-        this.qty = qty;
+        setProductID(productID);
+        setQty(qty); 
+        setData(data);
     }
 
-    public int getQty() {
+    public final int getQty() {
         return qty;
     }
 
-    public void setQty(int qty) {
+    public final void setQty(int qty) {
         this.qty = qty;
     }
     
@@ -40,7 +40,11 @@ public class LineItem {
     }
 
     public final void setData(ReceiptDataAccessStrategy data) {
-        this.data = data;
+        if(data == null){
+            throw new IllegalArgumentException("Error with the data property");
+        }else{
+            this.data = data;
+        }
     }
     
     

@@ -12,24 +12,28 @@ public class POSRegister {
     private ReceiptGenerator rg;
 
     public POSRegister(ReceiptGenerator rg) {
-        this.rg = rg;
+        setRg(rg);
     }
-    public void addToOrder(String productId, int qty){
+    public final void addToOrder(String productId, int qty){
         if(productId.length() == 0||qty<1){
             throw new IllegalArgumentException("Error with adding to the order at POS");
         }else{
             rg.addLineItem(productId, qty);
         }
     } 
-    void endOrder() {
+    public final void endOrder() {
         rg.getReceipt();
     }
-    public ReceiptGenerator getRg() {
+    public final ReceiptGenerator getRg() {
         return rg;
     }
 
-    public void setRg(ReceiptGenerator rg) {
-        this.rg = rg;
+    public final void setRg(ReceiptGenerator rg) {
+        if(rg == null){
+            throw new IllegalArgumentException("Error with the ReceiptGenerator in POSRegister");
+        }else{
+            this.rg = rg;
+        }
     }
 
    
