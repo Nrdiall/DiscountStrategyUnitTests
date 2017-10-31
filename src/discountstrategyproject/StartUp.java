@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package discountstrategyproject;
+
 /**
  *
  * @author Naython
@@ -15,8 +16,8 @@ public class StartUp {
      */
     public static void main(String[] args) {
         POSRegister pos = new POSRegister( new PaperReceipt("100", new InMemoryDataAccess()));
-        pos.addToOrder("A101",2);
-        pos.addToOrder("B205", 1);
+        pos.addToOrder("A101",5);
+        pos.addToOrder("B205", 7);
         pos.endOrder();
     }
     

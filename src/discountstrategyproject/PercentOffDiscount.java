@@ -17,6 +17,9 @@ public class PercentOffDiscount implements DiscountStrategy {
 
     @Override
     public final double getDiscountAmt(double unitPrice, int qty) {
+        if(unitPrice <=0 || qty<=0){
+            throw new IllegalArgumentException("Invalid entry for the getDiscountAmt method.");
+        }
         return percentOffPercent * unitPrice * qty; 
     }
     
@@ -25,6 +28,9 @@ public class PercentOffDiscount implements DiscountStrategy {
     }
 
     public final void setPercentOffPercent(double percentOffPercent) {
+        if(percentOffPercent > 1.0 || percentOffPercent <= 0.0){
+            throw new IllegalArgumentException("Please enter a percentage greater than 0 and less than 1.");
+        }
         this.percentOffPercent = percentOffPercent;
     }
 }
